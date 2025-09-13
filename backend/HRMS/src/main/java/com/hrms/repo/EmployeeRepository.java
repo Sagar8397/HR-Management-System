@@ -1,0 +1,17 @@
+package com.hrms.repo;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.hrms.entity.Employee;
+
+@Repository
+public interface EmployeeRepository extends JpaRepository<Employee, Integer>{
+
+	public abstract List<Employee> findByEmail(String email);
+	
+	Optional<Employee> findByEmailAndPassword(String email, String password);
+}
